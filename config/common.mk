@@ -167,5 +167,11 @@ include vendor/sereinextras/config.mk
 # Custom sereinOS versioning system
 include vendor/serein/config/serein_version.mk
 
+# Telephony-ext
+ PRODUCT_PACKAGES += \
+    telephony-ext
+ PRODUCT_BOOT_JARS += \
+    telephony-ext
+
 EXTENDED_POST_PROCESS_PROPS := vendor/serein/tools/serein_process_props.py
 
