@@ -29,7 +29,7 @@ import (
 )
 
 func init() {
-	android.RegisterModuleType("gzosp_generator", GeneratorFactory)
+	android.RegisterModuleType("serein_generator", GeneratorFactory)
 
 	pctx.HostBinToolVariable("sboxCmd", "sbox")
 }
