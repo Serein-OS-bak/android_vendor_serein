@@ -182,7 +182,7 @@ endif
 endif
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    BUILD_DISPLAY_ID=$(BUILD_ID) \
+    BUILD_DISPLAY_ID=$(BUILD_ID) 
     
 # Google sounds
 include vendor/serein/google/GoogleAudio.mk
