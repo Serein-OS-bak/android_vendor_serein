@@ -183,11 +183,7 @@ endif
 
 PRODUCT_PROPERTY_OVERRIDES += \
     BUILD_DISPLAY_ID=$(BUILD_ID) \
-    serein.ota.version=$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MAINTENANCE) \
-    ro.serein.version=$(SEREIN_VERSION) \
-    ro.modversion=$(SEREIN_MOD_VERSION) \
-    ro.serein.buildtype=$(SEREIN_BUILD_TYPE)
-
+    
 # Google sounds
 include vendor/serein/google/GoogleAudio.mk
 
