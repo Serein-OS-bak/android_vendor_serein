@@ -182,8 +182,11 @@ endif
 endif
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    BUILD_DISPLAY_ID=$(BUILD_ID) 
-    
+    BUILD_DISPLAY_ID=$(BUILD_ID)
+
+# sereinOS extras
+include vendor/sereinextras/config.mk
+
 # Google sounds
 include vendor/serein/google/GoogleAudio.mk
 
