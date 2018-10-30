@@ -5,7 +5,7 @@ function serein_device_combos()
     local T list_file variant device
 
     T="$(gettop)"
-    list_file="${T}/serein/gzosp/serein.devices"
+    list_file="${T}/vendor/serein/serein.devices"
     variant1="userdebug"
     variant2="user"
 
