@@ -83,7 +83,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     Basic \
     LiveWallpapersPicker \
-    PhaseBeam
+    PhaseBeam \
+    OmniStyle
 
 # Include explicitly to work around GMS issues
 PRODUCT_PACKAGES += \
