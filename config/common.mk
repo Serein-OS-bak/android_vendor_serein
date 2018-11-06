@@ -151,9 +151,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # sereinOS extras
 include vendor/sereinextras/config.mk
 
-# Google sounds
-include vendor/serein/google/GoogleAudio.mk
-
 # Custom sereinOS versioning system
 include vendor/serein/config/serein_version.mk
 
