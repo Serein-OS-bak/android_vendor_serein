@@ -52,4 +52,5 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.serein.version=$(VERSION)-$(SEREIN_BUILDTYPE) \
     ro.serein.version.update=$(SEREIN_BRANCH)-$(VERSION) \
     ro.serein.build.version=$(VERSION) \
-    ro.serein.display.version=$(SEREIN_VERSION)
+    ro.serein.display.version=$(SEREIN_VERSION) \
+    ro.serein.codename=$(SEREIN_CODENAME)
