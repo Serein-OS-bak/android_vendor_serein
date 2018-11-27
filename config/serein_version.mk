@@ -11,7 +11,7 @@ SEREIN_VERSION_MINOR = 0
 SEREIN_VERSION_MAINTENANCE = 0
 
 # Only include SereinOTA for official builds
-ifeq ($(filter-out OFFICIAL ,$(SEREIN_BUILDTYPE)),)
+ifeq ($(filter-out OFFICIAL EXPERIMENTAL ,$(SEREIN_BUILDTYPE)),)
     PRODUCT_PACKAGES += \
         SereinOTA
 endif
