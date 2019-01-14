@@ -1,14 +1,14 @@
 bootstrap_go_package {
-    name: "soong-serein",
-    pkgPath: "serein/soong/android",
+    name: "soong-ether",
+    pkgPath: "ether/soong/android",
     srcs: [
         "android/variable.go",
     ],
 }
 
 bootstrap_go_package {
-    name: "soong-serein-generator",
-    pkgPath: "serein/soong/generator",
+    name: "soong-ether-generator",
+    pkgPath: "ether/soong/generator",
     deps: [
         "blueprint",
         "blueprint-pathtools",
@@ -23,7 +23,7 @@ bootstrap_go_package {
     pluginFor: ["soong_build"],
 }
 
-serein_generator {
+ether_generator {
     name: "generated_kernel_includes",
 
     // The headers make command

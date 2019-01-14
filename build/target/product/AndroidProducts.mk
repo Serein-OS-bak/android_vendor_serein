@@ -15,6 +15,6 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/serein_arm.mk \
-    $(LOCAL_DIR)/serein_arm64.mk \
-    $(LOCAL_DIR)/serein_x86.mk
+    $(LOCAL_DIR)/ether_arm.mk \
+    $(LOCAL_DIR)/ether_arm64.mk \
+    $(LOCAL_DIR)/ether_x86.mk

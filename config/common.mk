@@ -20,37 +20,37 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Backup tool
 PRODUCT_COPY_FILES += \
-    vendor/serein/prebuilt/common/bin/backuptool.sh:install/bin/backuptool.sh \
-    vendor/serein/prebuilt/common/bin/backuptool.functions:install/bin/backuptool.functions \
-    vendor/serein/prebuilt/common/bin/50-serein.sh:system/addon.d/50-serein.sh \
-    vendor/serein/prebuilt/common/bin/clean_cache.sh:system/bin/clean_cache.sh
+    vendor/ether/prebuilt/common/bin/backuptool.sh:install/bin/backuptool.sh \
+    vendor/ether/prebuilt/common/bin/backuptool.functions:install/bin/backuptool.functions \
+    vendor/ether/prebuilt/common/bin/50-ether.sh:system/addon.d/50-ether.sh \
+    vendor/ether/prebuilt/common/bin/clean_cache.sh:system/bin/clean_cache.sh
 
 ifeq ($(AB_OTA_UPDATER),true)
 PRODUCT_COPY_FILES += \
-    vendor/serein/prebuilt/common/bin/backuptool_ab.sh:system/bin/backuptool_ab.sh \
-    vendor/serein/prebuilt/common/bin/backuptool_ab.functions:system/bin/backuptool_ab.functions \
-    vendor/serein/prebuilt/common/bin/backuptool_postinstall.sh:system/bin/backuptool_postinstall.sh
+    vendor/ether/prebuilt/common/bin/backuptool_ab.sh:system/bin/backuptool_ab.sh \
+    vendor/ether/prebuilt/common/bin/backuptool_ab.functions:system/bin/backuptool_ab.functions \
+    vendor/ether/prebuilt/common/bin/backuptool_postinstall.sh:system/bin/backuptool_postinstall.sh
 endif
 
 # Backup services whitelist
 PRODUCT_COPY_FILES += \
-    vendor/serein/config/permissions/backup.xml:system/etc/sysconfig/backup.xml
+    vendor/ether/config/permissions/backup.xml:system/etc/sysconfig/backup.xml
 
 # Signature compatibility validation
 PRODUCT_COPY_FILES += \
-    vendor/serein/prebuilt/common/bin/otasigcheck.sh:install/bin/otasigcheck.sh
+    vendor/ether/prebuilt/common/bin/otasigcheck.sh:install/bin/otasigcheck.sh
 
-# serein-specific init file
+# ether-specific init file
 PRODUCT_COPY_FILES += \
-    vendor/serein/prebuilt/common/etc/init.local.rc:root/init.serein.rc
+    vendor/ether/prebuilt/common/etc/init.local.rc:root/init.ether.rc
 
 # Copy LatinIME for gesture typing
 PRODUCT_COPY_FILES += \
-    vendor/serein/prebuilt/common/lib/libjni_latinimegoogle.so:system/lib/libjni_latinimegoogle.so
+    vendor/ether/prebuilt/common/lib/libjni_latinimegoogle.so:system/lib/libjni_latinimegoogle.so
 
 # SELinux filesystem labels
 PRODUCT_COPY_FILES += \
-    vendor/serein/prebuilt/common/etc/init.d/50selinuxrelabel:system/etc/init.d/50selinuxrelabel
+    vendor/ether/prebuilt/common/etc/init.d/50selinuxrelabel:system/etc/init.d/50selinuxrelabel
 
 # Enable SIP+VoIP on all targets
 PRODUCT_COPY_FILES += \
@@ -58,18 +58,18 @@ PRODUCT_COPY_FILES += \
 
 # Don't export PS1 in /system/etc/mkshrc.
 PRODUCT_COPY_FILES += \
-    vendor/serein/prebuilt/common/etc/mkshrc:system/etc/mkshrc \
-    vendor/serein/prebuilt/common/etc/sysctl.conf:system/etc/sysctl.conf
+    vendor/ether/prebuilt/common/etc/mkshrc:system/etc/mkshrc \
+    vendor/ether/prebuilt/common/etc/sysctl.conf:system/etc/sysctl.conf
 
 # Fix Dialer
 #PRODUCT_COPY_FILES +=  \
-#    vendor/serein/prebuilt/common/sysconfig/dialer_experience.xml:system/etc/sysconfig/dialer_experience.xml
+#    vendor/ether/prebuilt/common/sysconfig/dialer_experience.xml:system/etc/sysconfig/dialer_experience.xml
 
-# serein-specific startup services
+# ether-specific startup services
 PRODUCT_COPY_FILES += \
-    vendor/serein/prebuilt/common/etc/init.d/00banner:system/etc/init.d/00banner \
-    vendor/serein/prebuilt/common/etc/init.d/90userinit:system/etc/init.d/90userinit \
-    vendor/serein/prebuilt/common/bin/sysinit:system/bin/sysinit
+    vendor/ether/prebuilt/common/etc/init.d/00banner:system/etc/init.d/00banner \
+    vendor/ether/prebuilt/common/etc/init.d/90userinit:system/etc/init.d/90userinit \
+    vendor/ether/prebuilt/common/bin/sysinit:system/bin/sysinit
 
 # Required packages
 PRODUCT_PACKAGES += \
@@ -156,16 +156,16 @@ PRODUCT_PACKAGES += \
     AndroidDarkThemeOverlay \
     SettingsDarkThemeOverlay
 
-PRODUCT_PACKAGE_OVERLAYS += vendor/serein/overlay/common
+PRODUCT_PACKAGE_OVERLAYS += vendor/ether/overlay/common
 
 PRODUCT_PROPERTY_OVERRIDES += \
     BUILD_DISPLAY_ID=$(BUILD_ID)
 
-# sereinOS extras
-include vendor/sereinextras/config.mk
+# etherOS extras
+include vendor/etherextras/config.mk
 
-# Custom sereinOS versioning system
-include vendor/serein/config/serein_version.mk
+# Custom etherOS versioning system
+include vendor/ether/config/ether_version.mk
 
 # Telephony-ext
  PRODUCT_PACKAGES += \
@@ -173,5 +173,5 @@ include vendor/serein/config/serein_version.mk
  PRODUCT_BOOT_JARS += \
     telephony-ext
 
-EXTENDED_POST_PROCESS_PROPS := vendor/serein/tools/serein_process_props.py
+EXTENDED_POST_PROCESS_PROPS := vendor/ether/tools/ether_process_props.py
 

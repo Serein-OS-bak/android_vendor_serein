@@ -3,10 +3,10 @@
 #    BOARD_HAL_STATIC_LIBRARIES := libhealthd.cm
 #endif
 
-include vendor/serein/config/BoardConfigKernel.mk
+include vendor/ether/config/BoardConfigKernel.mk
 
 ifeq ($(BOARD_USES_QCOM_HARDWARE),true)
-include vendor/serein/config/BoardConfigQcom.mk
+include vendor/ether/config/BoardConfigQcom.mk
 endif
 
-include vendor/serein/config/BoardConfigSoong.mk
+include vendor/ether/config/BoardConfigSoong.mk

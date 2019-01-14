@@ -1,7 +1,7 @@
 # Inherit common stuff
-$(call inherit-product, vendor/serein/config/common.mk)
+$(call inherit-product, vendor/ether/config/common.mk)
 
-PRODUCT_PACKAGE_OVERLAYS += vendor/serein/overlay/tablet
+PRODUCT_PACKAGE_OVERLAYS += vendor/ether/overlay/tablet
 
 # BT config
 PRODUCT_COPY_FILES += \

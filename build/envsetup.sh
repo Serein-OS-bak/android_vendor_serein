@@ -1,11 +1,11 @@
-# serein functions that extend build/envsetup.sh
+# ether functions that extend build/envsetup.sh
 
-function serein_device_combos()
+function ether_device_combos()
 {
     local T list_file variant device
 
     T="$(gettop)"
-    list_file="${T}/vendor/serein/serein.devices"
+    list_file="${T}/vendor/ether/ether.devices"
     variant1="userdebug"
     variant2="user"
 
@@ -28,46 +28,46 @@ function serein_device_combos()
     if [[ ! -f "${list_file}" ]]
     then
         echo "unable to find device list: ${list_file}"
-        list_file="${T}/vendor/serein/serein.devices"
+        list_file="${T}/vendor/ether/ether.devices"
         echo "defaulting device list file to: ${list_file}"
     fi
 
     while IFS= read -r device
     do
-        add_lunch_combo "serein_${device}-${variant1}"
-        add_lunch_combo "serein_${device}-${variant2}"
+        add_lunch_combo "ether_${device}-${variant1}"
+        add_lunch_combo "ether_${device}-${variant2}"
     done < "${list_file}"
 }
 
-function serein_rename_function()
+function ether_rename_function()
 {
-    eval "original_serein_$(declare -f ${1})"
+    eval "original_ether_$(declare -f ${1})"
 }
 
-function _serein_build_hmm() #hidden
+function _ether_build_hmm() #hidden
 {
     printf "%-8s %s" "${1}:" "${2}"
 }
 
-function serein_append_hmm()
+function ether_append_hmm()
 {
-    HMM_DESCRIPTIVE=("${HMM_DESCRIPTIVE[@]}" "$(_serein_build_hmm "$1" "$2")")
+    HMM_DESCRIPTIVE=("${HMM_DESCRIPTIVE[@]}" "$(_ether_build_hmm "$1" "$2")")
 }
 
-function serein_add_hmm_entry()
+function ether_add_hmm_entry()
 {
     for c in ${!HMM_DESCRIPTIVE[*]}
     do
         if [[ "${1}" == $(echo "${HMM_DESCRIPTIVE[$c]}" | cut -f1 -d":") ]]
         then
-            HMM_DESCRIPTIVE[${c}]="$(_serein_build_hmm "$1" "$2")"
+            HMM_DESCRIPTIVE[${c}]="$(_ether_build_hmm "$1" "$2")"
             return
         fi
     done
-    serein_append_hmm "$1" "$2"
+    ether_append_hmm "$1" "$2"
 }
 
-function sereinremote()
+function etherremote()
 {
     local proj pfx project
 
@@ -76,7 +76,7 @@ function sereinremote()
         echo "Not in a git directory. Please run this from an Android repository you wish to set up."
         return
     fi
-    git remote rm serein 2> /dev/null
+    git remote rm ether 2> /dev/null
 
     proj="$(pwd -P | sed "s#$ANDROID_BUILD_TOP/##g")"
 
@@ -86,8 +86,8 @@ function sereinremote()
 
     project="${proj//\//_}"
 
-    git remote add serein "git@github.com:Serein-OS/$pfx$project"
-    echo "Remote 'serein' created"
+    git remote add ether "git@github.com:Ether-OS/$pfx$project"
+    echo "Remote 'ether' created"
 }
 
 function cmremote()
@@ -147,11 +147,11 @@ function cafremote()
     echo "Remote 'caf' created"
 }
 
-function serein_push()
+function ether_push()
 {
     local branch ssh_name path_opt proj
     branch="lp5.1"
-    ssh_name="serein_review"
+    ssh_name="ether_review"
     path_opt=
 
     if [[ "$1" ]]
@@ -169,24 +169,24 @@ function serein_push()
         proj="android_$proj"
     fi
 
-    git $path_opt push "ssh://${ssh_name}/Serein-OS/$proj" "HEAD:refs/for/$branch"
+    git $path_opt push "ssh://${ssh_name}/Ether-OS/$proj" "HEAD:refs/for/$branch"
 }
 
 
-serein_rename_function hmm
+ether_rename_function hmm
 function hmm() #hidden
 {
     local i T
     T="$(gettop)"
-    original_serein_hmm
+    original_ether_hmm
     echo
 
-    echo "vendor/serein extended functions. The complete list is:"
-    for i in $(grep -P '^function .*$' "$T/vendor/serein/build/envsetup.sh" | grep -v "#hidden" | sed 's/function \([a-z_]*\).*/\1/' | sort | uniq); do
+    echo "vendor/ether extended functions. The complete list is:"
+    for i in $(grep -P '^function .*$' "$T/vendor/ether/build/envsetup.sh" | grep -v "#hidden" | sed 's/function \([a-z_]*\).*/\1/' | sort | uniq); do
         echo "$i"
     done |column
 }
 
-serein_append_hmm "sereinremote" "Add a git remote for matching serein repository"
-serein_append_hmm "aospremote" "Add git remote for matching AOSP repository"
-serein_append_hmm "cafremote" "Add git remote for matching CodeAurora repository."
+ether_append_hmm "etherremote" "Add a git remote for matching ether repository"
+ether_append_hmm "aospremote" "Add git remote for matching AOSP repository"
+ether_append_hmm "cafremote" "Add git remote for matching CodeAurora repository."

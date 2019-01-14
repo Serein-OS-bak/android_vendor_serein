@@ -1,3 +1,3 @@
-. "$(gettop)/vendor/serein/build/envsetup.sh"
+. "$(gettop)/vendor/ether/build/envsetup.sh"
 
-serein_device_combos
+ether_device_combos

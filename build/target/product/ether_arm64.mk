@@ -12,12 +12,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-$(call inherit-product, build/target/product/aosp_arm.mk)
-$(call inherit-product, vendor/serein/config/common.mk)
+$(call inherit-product, build/target/product/aosp_arm64.mk)
+$(call inherit-product, vendor/ether/config/common.mk)
 
 # Allow building otatools
 TARGET_FORCE_OTA_PACKAGE := true
 
-TARGET_USES_64_BIT_BINDER := true
-
-PRODUCT_NAME := serein_arm
+PRODUCT_NAME := ether_arm64

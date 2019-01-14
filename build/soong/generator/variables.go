@@ -6,12 +6,12 @@ import (
 	"android/soong/android"
 )
 
-func sereinExpandVariables(ctx android.ModuleContext, in string) string {
-	sereinVars := ctx.Config().VendorConfig("sereinVarsPlugin")
+func etherExpandVariables(ctx android.ModuleContext, in string) string {
+	etherVars := ctx.Config().VendorConfig("etherVarsPlugin")
 
 	out, err := android.Expand(in, func(name string) (string, error) {
-		if sereinVars.IsSet(name) {
-			return sereinVars.String(name), nil
+		if etherVars.IsSet(name) {
+			return etherVars.String(name), nil
 		}
 		// This variable is not for us, restore what the original
 		// variable string will have looked like for an Expand
