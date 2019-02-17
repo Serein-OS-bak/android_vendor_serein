@@ -18,6 +18,14 @@ endif
 
 VERSION := $(SEREIN_VERSION_MAJOR).$(SEREIN_VERSION_MINOR)
 
+ifndef CPU_MODEL
+    CPU_MODEL := Snapdragon Pu55y Slayer
+endif
+
+ifndef SEREIN_MAINTAINER
+    SEREIN_MAINTAINER := Unknown
+endif
+
 ifndef SEREIN_BUILDTYPE
     ifdef RELEASE_TYPE
         RELEASE_TYPE := $(shell echo $(RELEASE_TYPE) | sed -e 's|^SEREIN_||g')
@@ -59,4 +67,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.serein.version.update=$(SEREIN_BRANCH)-$(VERSION) \
     ro.serein.build.version=$(VERSION) \
     ro.serein.display.version=$(SEREIN_VERSION) \
-    ro.serein.codename=$(SEREIN_CODENAME)
+    ro.serein.codename=$(SEREIN_CODENAME) \
+	ro.serein.maintainer = $(SEREIN_MAINTAINER) \
+    ro.processor.model=$(CPU_MODEL)
